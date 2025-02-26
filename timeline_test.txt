@@ -1,0 +1,3150 @@
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 10
+next state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+next_state score: 20
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+score: 20
+next state [obs]: << Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+next state valid acts: dict_values(['north', 'take small', 'east', 'put paper down', 'abstract small to paper', 'abstract paper to small', 'push small to floor'])
+next_state score: 20
+action: abstract small to paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+valid acts: dict_values(['north', 'take small', 'east', 'put paper down', 'abstract small to paper', 'abstract paper to small', 'push small to floor'])
+score: 20
+next state [obs]: (the piece of white paper)
+[Abstracted.]
+next state valid acts: dict_values(['north', 'put piece down', 'abstract black to piece', 'east'])
+next_state score: 20
+action: abstract black to piece
+reward: 0
+
+----------------------------------------------
+
+state [obs]: (the piece of white paper)
+[Abstracted.]
+valid acts: dict_values(['north', 'put piece down', 'abstract black to piece', 'east'])
+score: 20
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['north', 'put piece down', 'abstract black to piece', 'east'])
+next_state score: 20
+action: put piece down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+score: 20
+next state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west', 'put paper down'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west', 'put paper down'])
+score: 20
+next state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west', 'put paper down'])
+next_state score: 20
+action: west
+reward: 10
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west', 'put paper down'])
+score: 20
+next state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['west', 'east', 'north', 'put paper down'])
+next_state score: 30
+action: put paper down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['west', 'east', 'north', 'put paper down'])
+score: 30
+next state [obs]: Dropped.
+next state valid acts: dict_values(['west', 'take paper', 'east', 'north'])
+next_state score: 30
+action: take paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 10
+next state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+next_state score: 20
+action: READ PAPER
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+score: 20
+next state [obs]: Dropped.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 20
+next state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 20
+action: west
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west'])
+score: 20
+next state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['west', 'east', 'north'])
+next_state score: 30
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+score: 20
+next state [obs]: CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+next state valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+next_state score: 20
+action: DROP PAPER
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 20
+next state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west'])
+score: 20
+next state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 20
+action: west
+reward: 10
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west'])
+score: 20
+next state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['west', 'east', 'north'])
+next_state score: 30
+action: east
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['west', 'east', 'north'])
+score: 30
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 40
+action: north
+reward: 10
+
+----------------------------------------------
+
+state [obs]: CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+score: 20
+next state [obs]: Dropped.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 20
+action: INVENTORY
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 20
+next state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west'])
+score: 20
+next state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west'])
+score: 20
+next state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west'])
+score: 20
+next state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 20
+next state [obs]: You are carrying nothing.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 20
+action: W
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+score: 20
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+next_state score: 20
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+score: 20
+next state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 20
+action: take piece
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 20
+next state [obs]: Taken.
+next state valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+score: 20
+next state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west', 'put paper down'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You are carrying nothing.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 20
+next state [obs]: << Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+next state valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+next_state score: 20
+action: TAKE GUN
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+valid acts: dict_values(['north', 'put black down', 'east'])
+score: 30
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+next_state score: 30
+action: push black to floor
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+score: 30
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+next_state score: 30
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+score: 30
+next state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 30
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 30
+next state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 30
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+score: 20
+next state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['north', 'put black down', 'east'])
+next_state score: 30
+action: E
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west', 'put black down', 'abstract black to piece', 'abstract piece to black'])
+score: 30
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west', 'abstract black to piece'])
+next_state score: 30
+action: take piece
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['east', 'take piece', 'north', 'west', 'abstract black to piece'])
+score: 30
+next state [obs]: Taken.
+next state valid acts: dict_values(['east', 'north', 'west', 'put piece down', 'abstract black to piece'])
+next_state score: 30
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+valid acts: dict_values(['east', 'north', 'west', 'put piece down', 'abstract black to piece'])
+score: 30
+next state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+next state valid acts: dict_values(['east', 'north', 'west', 'put piece down', 'abstract black to piece'])
+next_state score: 30
+action: put piece down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+valid acts: dict_values(['east', 'north', 'west', 'put piece down', 'abstract black to piece'])
+score: 30
+next state [obs]: Dropped.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west', 'abstract black to piece'])
+next_state score: 30
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['north', 'put black down', 'east'])
+score: 30
+next state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west', 'put black down', 'abstract black to piece', 'abstract piece to black'])
+next_state score: 30
+action: N
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west', 'put small down'])
+score: 30
+next state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['west', 'east', 'north', 'put small down'])
+next_state score: 40
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['west', 'east', 'north', 'put small down'])
+score: 40
+next state [obs]: You can't go west from here!
+
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+next state valid acts: dict_values(['west', 'east', 'north', 'put small down'])
+next_state score: 40
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go west from here!
+
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+valid acts: dict_values(['west', 'east', 'north', 'put small down'])
+score: 40
+next state [obs]: You can't go west from here!
+
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+next state valid acts: dict_values(['west', 'east', 'north', 'put small down'])
+next_state score: 40
+action: put small down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go west from here!
+
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+valid acts: dict_values(['west', 'east', 'north', 'put small down'])
+score: 40
+next state [obs]: Dropped.
+next state valid acts: dict_values(['west', 'take small', 'east', 'north'])
+next_state score: 40
+action: take small
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west', 'put black down', 'abstract black to piece', 'abstract piece to black'])
+score: 30
+next state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west', 'put small down'])
+next_state score: 30
+action: W
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+valid acts: dict_values(['west', 'east', 'north', 'put small down'])
+score: 40
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down'])
+next_state score: 50
+action: north
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down'])
+score: 50
+next state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west', 'put small down'])
+next_state score: 60
+action: put small down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['get up', 'east', 'south', 'north', 'west', 'put small down'])
+score: 60
+next state [obs]: Dropped.
+next state valid acts: dict_values(['get up', 'take small', 'east', 'south', 'north', 'west'])
+next_state score: 60
+action: take small
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['get up', 'take small', 'east', 'south', 'north', 'west'])
+score: 60
+next state [obs]: Taken.
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west', 'put small down'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west', 'put small down'])
+score: 30
+next state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['west', 'east', 'north', 'put small down'])
+next_state score: 40
+action: E
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down'])
+score: 50
+next state [obs]: Dropped.
+next state valid acts: dict_values(['south', 'take black', 'north', 'east', 'west'])
+next_state score: 50
+action: north
+reward: 10
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['south', 'take black', 'north', 'east', 'west'])
+score: 50
+next state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+next_state score: 60
+action: get up
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+score: 60
+next state [obs]: You can't go out from here!
+
+<< Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go out from here!
+
+<< Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+score: 60
+next state [obs]: << Closet >>
+You are in a closet. The closet is of the walk in variety, with about thirty pairs of tennis shoes, ten pairs of heels and about ninety coats and shirts. You start to get claustrophobia. Better get out.
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['west', 'east', 'north', 'put small down'])
+score: 40
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down'])
+next_state score: 50
+action: E
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+valid acts: dict_values(['north', 'take wooden', 'put small down', 'abstract small to wooden', 'abstract small to piece', 'abstract wooden to small', 'abstract wooden to piece', 'abstract piece to small', 'abstract piece to wooden', 'west'])
+score: 50
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['north', 'put small down', 'abstract small to wood', 'abstract wood to small', 'west'])
+next_state score: 50
+action: abstract wood to small
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['north', 'put small down', 'abstract small to wood', 'abstract wood to small', 'west'])
+score: 50
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['north', 'put small down', 'abstract wooden to small', 'west'])
+next_state score: 50
+action: put small down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['north', 'put small down', 'abstract wooden to small', 'west'])
+score: 50
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take small', 'abstract wooden to small', 'west'])
+next_state score: 50
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take small', 'abstract wooden to small', 'west'])
+score: 50
+next state [obs]: You can't go north from here!
+
+<< Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a small black pistol here.
+next state valid acts: dict_values(['north', 'take small', 'abstract wooden to small', 'west'])
+next_state score: 50
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down'])
+score: 50
+next state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+next state valid acts: dict_values(['north', 'take wooden', 'put small down', 'abstract small to wooden', 'abstract small to piece', 'abstract wooden to small', 'abstract wooden to piece', 'abstract piece to small', 'abstract piece to wooden', 'west'])
+next_state score: 50
+action: TAKE WOOD
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+valid acts: dict_values(['north', 'put small down', 'put wooden down', 'abstract small to wooden', 'abstract small to piece', 'abstract wooden to small', 'abstract wooden to piece', 'abstract piece to small', 'abstract piece to wooden', 'west'])
+score: 60
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take small', 'put wooden down', 'abstract small to wooden', 'abstract small to piece', 'abstract wooden to small', 'abstract wooden to piece', 'abstract piece to small', 'abstract piece to wooden', 'west'])
+next_state score: 60
+action: take small
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take small', 'put wooden down', 'abstract small to wooden', 'abstract small to piece', 'abstract wooden to small', 'abstract wooden to piece', 'abstract piece to small', 'abstract piece to wooden', 'west'])
+score: 60
+next state [obs]: Taken.
+next state valid acts: dict_values(['north', 'put small down', 'put wooden down', 'abstract small to wooden', 'abstract small to piece', 'abstract wooden to small', 'abstract wooden to piece', 'abstract piece to small', 'abstract piece to wooden', 'west'])
+next_state score: 60
+action: abstract small to wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+valid acts: dict_values(['north', 'put small down', 'put wooden down', 'abstract small to wooden', 'abstract small to piece', 'abstract wooden to small', 'abstract wooden to piece', 'abstract piece to small', 'abstract piece to wooden', 'west'])
+score: 60
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['north', 'put wooden down', 'abstract small to wooden', 'west'])
+next_state score: 60
+action: abstract small to wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['north', 'put wooden down', 'abstract small to wooden', 'west'])
+score: 60
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['north', 'put wooden down', 'abstract small to wooden', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+valid acts: dict_values(['north', 'take wooden', 'put small down', 'abstract small to wooden', 'abstract small to piece', 'abstract wooden to small', 'abstract wooden to piece', 'abstract piece to small', 'abstract piece to wooden', 'west'])
+score: 50
+next state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['north', 'put small down', 'put wooden down', 'abstract small to wooden', 'abstract small to piece', 'abstract wooden to small', 'abstract wooden to piece', 'abstract piece to small', 'abstract piece to wooden', 'west'])
+next_state score: 60
+action: W
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down', 'put wooden down', 'abstract black to wooden', 'abstract wooden to black'])
+score: 60
+next state [obs]: You can't go south from here!
+
+<< Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down', 'put wooden down', 'abstract black to wooden', 'abstract wooden to black'])
+next_state score: 60
+action: abstract black to wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go south from here!
+
+<< Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down', 'put wooden down', 'abstract black to wooden', 'abstract wooden to black'])
+score: 60
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put wooden down', 'abstract black to wooden'])
+next_state score: 60
+action: north
+reward: 10
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put wooden down', 'abstract black to wooden'])
+score: 60
+next state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west', 'put wooden down', 'abstract small to wooden'])
+next_state score: 70
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['get up', 'east', 'south', 'north', 'west', 'put wooden down', 'abstract small to wooden'])
+score: 70
+next state [obs]: << Hallway >>
+You are at the end of the hallway. To the north is a room, while to the west is the rest of the hallway.
+next state valid acts: dict_values(['east', 'north', 'west', 'put wooden down', 'abstract small to wooden'])
+next_state score: 70
+action: put wooden down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['north', 'put small down', 'put wooden down', 'abstract small to wooden', 'abstract small to piece', 'abstract wooden to small', 'abstract wooden to piece', 'abstract piece to small', 'abstract piece to wooden', 'west'])
+score: 60
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down', 'put wooden down', 'abstract black to wooden', 'abstract wooden to black'])
+next_state score: 60
+action: W
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+
+You can see a paper note here.
+valid acts: dict_values(['north', 'take paper', 'put small down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 60
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take small', 'take paper', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east', 'take all'])
+next_state score: 60
+action: put wooden down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take small', 'take paper', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east', 'take all'])
+score: 60
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take small', 'take paper', 'take wooden', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east', 'take all'])
+next_state score: 60
+action: take all
+reward: 10
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take small', 'take paper', 'take wooden', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east', 'take all'])
+score: 60
+next state [obs]: wooden wood: Taken.
+small black pistol: Taken.
+paper note: Taken.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: abstract small to wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: wooden wood: Taken.
+small black pistol: Taken.
+paper note: Taken.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['north', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down', 'put wooden down', 'abstract black to wooden', 'abstract wooden to black'])
+score: 60
+next state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+
+You can see a paper note here.
+next state valid acts: dict_values(['north', 'take paper', 'put small down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 60
+action: TAKE NOTE
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: (the paper note)
+[Abstracted.]
+next state valid acts: dict_values(['north', 'put small down', 'put paper down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: abstract small to paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: (the paper note)
+[Abstracted.]
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: (the paper note)
+[Abstracted.]
+next state valid acts: dict_values(['north', 'put paper down', 'abstract black to paper', 'east'])
+next_state score: 70
+action: abstract black to paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: (the paper note)
+[Abstracted.]
+valid acts: dict_values(['north', 'put paper down', 'abstract black to paper', 'east'])
+score: 70
+next state [obs]: (the paper note)
+[Abstracted.]
+next state valid acts: dict_values(['north', 'put paper down', 'abstract black to paper', 'east'])
+next_state score: 70
+action: put paper down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: (the paper note)
+[Abstracted.]
+valid acts: dict_values(['north', 'put paper down', 'abstract black to paper', 'east'])
+score: 70
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take paper', 'abstract black to paper', 'east'])
+next_state score: 70
+action: take paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+
+You can see a paper note here.
+valid acts: dict_values(['north', 'take paper', 'put small down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 60
+next state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: READ NOTE
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: You can't go north from here!
+
+<< Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+next state valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: abstract small to wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['north', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['north', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to paper'])
+next_state score: 70
+action: abstract black to paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to paper'])
+score: 70
+next state [obs]: (the paper note)
+[Abstracted.]
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper'])
+next_state score: 70
+action: abstract paper to wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: The note was written on a computer obviously this murder was planned and it says:
+We have acclaimed Justice! The Justice of the future! Our next hit is the governer! You CAN'T STOP US! The note sounds like the killers are a group and that they are vigilantes (look it up). You are now getting a bit worried.
+next state valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: E
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper'])
+score: 70
+next state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+next state valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: You can't go north from here!
+
+<< Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+next state valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: abstract wooden to small
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['north', 'put small down', 'put paper down', 'abstract small to paper', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: put paper down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'abstract small to paper', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take paper', 'put small down', 'abstract small to paper', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 70
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: The note was written on a computer obviously this murder was planned and it says:
+We have acclaimed Justice! The Justice of the future! Our next hit is the governer! You CAN'T STOP US! The note sounds like the killers are a group and that they are vigilantes (look it up). You are now getting a bit worried.
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 70
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper'])
+next_state score: 70
+action: N
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+valid acts: dict_values(['get up', 'north', 'east', 'south', 'west', 'put black down', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper'])
+score: 80
+next state [obs]: << Closet >>
+You are in a closet. The closet is of the walk in variety, with about thirty pairs of tennis shoes, ten pairs of heels and about ninety coats and shirts. You start to get claustrophobia. Better get out.
+next state valid acts: dict_values(['north', 'put black down', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper', 'east'])
+next_state score: 80
+action: abstract wooden to black
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a closet. The closet is of the walk in variety, with about thirty pairs of tennis shoes, ten pairs of heels and about ninety coats and shirts. You start to get claustrophobia. Better get out.
+valid acts: dict_values(['north', 'put black down', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper', 'east'])
+score: 80
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['north', 'put black down', 'put paper down', 'abstract black to paper', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper', 'east'])
+next_state score: 80
+action: put paper down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['north', 'put black down', 'put paper down', 'abstract black to paper', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper', 'east'])
+score: 80
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take paper', 'put black down', 'abstract black to paper', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper', 'east'])
+next_state score: 80
+action: take paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take paper', 'put black down', 'abstract black to paper', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper', 'east'])
+score: 80
+next state [obs]: Taken.
+next state valid acts: dict_values(['north', 'put black down', 'put paper down', 'abstract black to paper', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper', 'east'])
+next_state score: 80
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put black down', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper'])
+score: 70
+next state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['get up', 'north', 'east', 'south', 'west', 'put black down', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper'])
+next_state score: 80
+action: N
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are at the end of the hallway. To the north is a room, while to the west is the rest of the hallway.
+valid acts: dict_values(['east', 'north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: You can't go east from here!
+
+<< Hallway >>
+You are at the end of the hallway. To the north is a room, while to the west is the rest of the hallway.
+next state valid acts: dict_values(['east', 'north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+next_state score: 80
+action: abstract wooden to paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go east from here!
+
+<< Hallway >>
+You are at the end of the hallway. To the north is a room, while to the west is the rest of the hallway.
+valid acts: dict_values(['east', 'north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: (the paper note)
+[Abstracted.]
+next state valid acts: dict_values(['east', 'north', 'west', 'put small down', 'put paper down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract wooden to small', 'abstract wooden to paper'])
+next_state score: 80
+action: abstract small to wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: (the paper note)
+[Abstracted.]
+valid acts: dict_values(['east', 'north', 'west', 'put small down', 'put paper down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['east', 'north', 'west', 'put paper down', 'abstract small to paper'])
+next_state score: 80
+action: abstract small to paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['east', 'north', 'west', 'put paper down', 'abstract small to paper'])
+score: 80
+next state [obs]: (the paper note)
+[Abstracted.]
+next state valid acts: dict_values(['east', 'north', 'west', 'put paper down', 'abstract small to paper'])
+next_state score: 80
+action: put paper down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['get up', 'north', 'east', 'south', 'west', 'put black down', 'put paper down', 'put wooden down', 'abstract black to paper', 'abstract black to wooden', 'abstract paper to black', 'abstract paper to wooden', 'abstract wooden to black', 'abstract wooden to paper'])
+score: 80
+next state [obs]: << Hallway >>
+You are at the end of the hallway. To the north is a room, while to the west is the rest of the hallway.
+next state valid acts: dict_values(['east', 'north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+next_state score: 80
+action: W
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are in the hallway. To the north is more hallway, and to the east is a door marked "Guests".
+valid acts: dict_values(['west', 'east', 'north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: Dropped.
+next state valid acts: dict_values(['west', 'take small', 'east', 'north', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+next_state score: 80
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['west', 'take small', 'east', 'north', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+next state valid acts: dict_values(['south', 'east', 'north', 'west', 'put paper down', 'put wooden down', 'abstract paper to wooden', 'abstract wooden to paper'])
+next_state score: 80
+action: put wooden down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west', 'put paper down', 'put wooden down', 'abstract paper to wooden', 'abstract wooden to paper'])
+score: 80
+next state [obs]: Dropped.
+next state valid acts: dict_values(['south', 'take wooden', 'east', 'north', 'west', 'put paper down', 'abstract paper to wooden', 'abstract wooden to paper'])
+next_state score: 80
+action: take wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['south', 'take wooden', 'east', 'north', 'west', 'put paper down', 'abstract paper to wooden', 'abstract wooden to paper'])
+score: 80
+next state [obs]: Taken.
+next state valid acts: dict_values(['south', 'east', 'north', 'west', 'put paper down', 'put wooden down', 'abstract paper to wooden', 'abstract wooden to paper'])
+next_state score: 80
+action: south
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are at the end of the hallway. To the north is a room, while to the west is the rest of the hallway.
+valid acts: dict_values(['east', 'north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: << Hallway >>
+You are in the hallway. To the north is more hallway, and to the east is a door marked "Guests".
+next state valid acts: dict_values(['west', 'east', 'north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+next_state score: 80
+action: N
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: You can't go south from here!
+
+<< Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+next state valid acts: dict_values(['south', 'east', 'north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+next_state score: 80
+action: abstract paper to small
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go south from here!
+
+<< Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: (the paper note to the small black pistol)
+[Abstracted.]
+next state valid acts: dict_values(['south', 'east', 'north', 'west', 'put small down', 'put wooden down', 'abstract small to wooden', 'abstract wooden to small'])
+next_state score: 80
+action: put wooden down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: (the paper note to the small black pistol)
+[Abstracted.]
+valid acts: dict_values(['south', 'east', 'north', 'west', 'put small down', 'put wooden down', 'abstract small to wooden', 'abstract wooden to small'])
+score: 80
+next state [obs]: Dropped.
+next state valid acts: dict_values(['south', 'take wooden', 'east', 'north', 'west', 'put small down', 'abstract small to wooden', 'abstract wooden to small'])
+next_state score: 80
+action: abstract wooden to small
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['south', 'take wooden', 'east', 'north', 'west', 'put small down', 'abstract small to wooden', 'abstract wooden to small'])
+score: 80
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['south', 'east', 'north', 'west', 'put small down'])
+next_state score: 80
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are in the hallway. To the north is more hallway, and to the east is a door marked "Guests".
+valid acts: dict_values(['west', 'east', 'north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+next state valid acts: dict_values(['south', 'east', 'north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+next_state score: 80
+action: N
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+valid acts: dict_values(['south', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'north', 'east'])
+score: 80
+next state [obs]: << Guest Room >>
+You are in a guest room. You see that there isn't much here, the murderers ransacked the room. You can go west.
+next state valid acts: dict_values(['north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+next_state score: 80
+action: put paper down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Guest Room >>
+You are in a guest room. You see that there isn't much here, the murderers ransacked the room. You can go west.
+valid acts: dict_values(['north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take paper', 'west', 'put small down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+next_state score: 80
+action: take paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take paper', 'west', 'put small down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: Taken.
+next state valid acts: dict_values(['north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+next_state score: 80
+action: abstract paper to wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+valid acts: dict_values(['north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: (the paper note to the wooden wood)
+[Abstracted.]
+next state valid acts: dict_values(['north', 'west', 'put small down', 'put wooden down', 'abstract small to wooden', 'abstract wooden to small'])
+next_state score: 80
+action: put wooden down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper'])
+score: 80
+next state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+next state valid acts: dict_values(['south', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'north', 'east'])
+next_state score: 80
+action: W
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 90
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take paper', 'put small down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 90
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take paper', 'put small down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 90
+next state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+next state valid acts: dict_values(['south', 'west', 'put small down', 'put wooden down', 'abstract small to wooden', 'abstract wooden to small', 'north', 'east'])
+next_state score: 90
+action: put wooden down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+valid acts: dict_values(['south', 'west', 'put small down', 'put wooden down', 'abstract small to wooden', 'abstract wooden to small', 'north', 'east'])
+score: 90
+next state [obs]: Dropped.
+next state valid acts: dict_values(['south', 'take wooden', 'east', 'west', 'put small down', 'abstract small to wooden', 'abstract wooden to small', 'north'])
+next_state score: 90
+action: abstract wooden to small
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['south', 'take wooden', 'east', 'west', 'put small down', 'abstract small to wooden', 'abstract wooden to small', 'north'])
+score: 90
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['south', 'west', 'put black down', 'abstract wood to black', 'north', 'east'])
+next_state score: 90
+action: south
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+valid acts: dict_values(['south', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'north', 'east'])
+score: 80
+next state [obs]: << Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+next_state score: 90
+action: E
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+valid acts: dict_values(['south', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'north', 'east'])
+score: 90
+next state [obs]: Dropped.
+next state valid acts: dict_values(['south', 'take small', 'east', 'west', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'north'])
+next_state score: 90
+action: south
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['south', 'take small', 'east', 'west', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'north'])
+score: 90
+next state [obs]: You can't go south from here!
+
+<< Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+
+You can see a small black pistol here.
+next state valid acts: dict_values(['south', 'take small', 'east', 'west', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'north'])
+next_state score: 90
+action: abstract wooden to paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go south from here!
+
+<< Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+
+You can see a small black pistol here.
+valid acts: dict_values(['south', 'take small', 'east', 'west', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'north'])
+score: 90
+next state [obs]: (the paper note)
+[Abstracted.]
+next state valid acts: dict_values(['south', 'take small', 'east', 'west', 'put paper down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract wooden to small', 'abstract wooden to paper', 'north'])
+next_state score: 90
+action: abstract small to paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: (the paper note)
+[Abstracted.]
+valid acts: dict_values(['south', 'take small', 'east', 'west', 'put paper down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract wooden to small', 'abstract wooden to paper', 'north'])
+score: 90
+next state [obs]: (the paper note)
+[Abstracted.]
+next state valid acts: dict_values(['south', 'west', 'put paper down', 'abstract black to paper', 'north', 'east'])
+next_state score: 90
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['north', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'east'])
+score: 90
+next state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+next state valid acts: dict_values(['south', 'west', 'put small down', 'put paper down', 'put wooden down', 'abstract small to paper', 'abstract small to wooden', 'abstract paper to small', 'abstract paper to wooden', 'abstract wooden to small', 'abstract wooden to paper', 'north', 'east'])
+next_state score: 90
+action: N
+reward: 10
+
+----------------------------------------------
+
+state [obs]: [Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 10
+next state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 10
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 10
+next state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 10
+action: take piece
+reward: 10
+
+----------------------------------------------
+
+state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 10
+next state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+score: 20
+next state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west', 'put paper down'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west', 'put paper down'])
+score: 20
+next state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west', 'put paper down'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west', 'put paper down'])
+score: 20
+next state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west', 'put paper down'])
+next_state score: 20
+action: put paper down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west', 'put paper down'])
+score: 20
+next state [obs]: Dropped.
+next state valid acts: dict_values(['north', 'take paper', 'west'])
+next_state score: 20
+action: take paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['north', 'take paper', 'west'])
+score: 20
+next state [obs]: Taken.
+next state valid acts: dict_values(['north', 'west', 'put paper down'])
+next_state score: 20
+action: west
+reward: 10
+
+----------------------------------------------
+
+state [obs]: Taken.
+valid acts: dict_values(['north', 'west', 'put paper down'])
+score: 20
+next state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['west', 'east', 'north', 'put paper down'])
+next_state score: 30
+action: east
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['west', 'east', 'north', 'put paper down'])
+score: 30
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put piece down'])
+next_state score: 40
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put piece down'])
+score: 40
+next state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+
+You can see a paper note here.
+next state valid acts: dict_values(['north', 'take paper', 'put white down', 'abstract white to paper', 'abstract paper to white', 'east'])
+next_state score: 40
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+
+You can see a paper note here.
+valid acts: dict_values(['north', 'take paper', 'put white down', 'abstract white to paper', 'abstract paper to white', 'east'])
+score: 40
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put piece down'])
+next_state score: 40
+action: south
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put piece down'])
+score: 40
+next state [obs]: You can't go south from here!
+
+<< Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'north', 'east', 'west', 'put piece down'])
+next_state score: 40
+action: put piece down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go south from here!
+
+<< Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'north', 'east', 'west', 'put piece down'])
+score: 40
+next state [obs]: Dropped.
+next state valid acts: dict_values(['south', 'take piece', 'north', 'east', 'west'])
+next_state score: 40
+action: north
+reward: 10
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['south', 'take piece', 'north', 'east', 'west'])
+score: 40
+next state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+next_state score: 50
+action: south
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+score: 50
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+You can see a piece of white paper here.
+next state valid acts: dict_values(['south', 'take piece', 'north', 'east', 'west'])
+next_state score: 50
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['south', 'take piece', 'north', 'east', 'west'])
+score: 50
+next state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+next state valid acts: dict_values(['north', 'take wooden', 'abstract wooden to piece', 'abstract piece to wooden', 'west'])
+next_state score: 50
+action: abstract piece to wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+valid acts: dict_values(['north', 'take wooden', 'abstract wooden to piece', 'abstract piece to wooden', 'west'])
+score: 50
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['north', 'take wooden', 'west'])
+next_state score: 50
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['north', 'take wooden', 'west'])
+score: 50
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 50
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 50
+next state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+next_state score: 50
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+score: 50
+next state [obs]: << Bathroom >>
+You are in the first bathroom, out of the 5 there is. You notice that it is almost as big as your apartment. You see a knife on the floor here.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 50
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Bathroom >>
+You are in the first bathroom, out of the 5 there is. You notice that it is almost as big as your apartment. You see a knife on the floor here.
+valid acts: dict_values(['north', 'west'])
+score: 50
+next state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+next_state score: 50
+action: get up
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+score: 50
+next state [obs]: You can't go out from here!
+
+<< Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+next_state score: 50
+action: south
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go out from here!
+
+<< Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+score: 50
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 50
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 50
+next state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+next state valid acts: dict_values(['north', 'take wooden', 'west'])
+next_state score: 50
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+valid acts: dict_values(['north', 'take wooden', 'west'])
+score: 50
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 50
+action: south
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 50
+next state [obs]: You can't go south from here!
+
+<< Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 50
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go south from here!
+
+<< Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 50
+next state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+next state valid acts: dict_values(['north', 'take wooden', 'west'])
+next_state score: 50
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+valid acts: dict_values(['north', 'take wooden', 'west'])
+score: 50
+next state [obs]: You can't go north from here!
+
+<< Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+next state valid acts: dict_values(['north', 'take wooden', 'west'])
+next_state score: 50
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+valid acts: dict_values(['north', 'take wooden', 'west'])
+score: 50
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 50
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 50
+next state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+
+You can see a paper note here.
+next state valid acts: dict_values(['north', 'take paper', 'east'])
+next_state score: 50
+action: take paper
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+
+You can see a paper note here.
+valid acts: dict_values(['north', 'take paper', 'east'])
+score: 50
+next state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['north', 'put paper down', 'east'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['north', 'put paper down', 'east'])
+score: 60
+next state [obs]: You can't go north from here!
+
+<< Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+next state valid acts: dict_values(['north', 'put paper down', 'east'])
+next_state score: 60
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+valid acts: dict_values(['north', 'put paper down', 'east'])
+score: 60
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'east', 'north', 'west', 'put paper down'])
+next_state score: 60
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'east', 'north', 'west', 'put paper down'])
+score: 60
+next state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+next state valid acts: dict_values(['north', 'take wooden', 'put paper down', 'abstract paper to wooden', 'abstract paper to white', 'abstract wooden to paper', 'abstract white to paper', 'abstract white to wooden', 'west'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+valid acts: dict_values(['north', 'take wooden', 'put paper down', 'abstract paper to wooden', 'abstract paper to white', 'abstract wooden to paper', 'abstract white to paper', 'abstract white to wooden', 'west'])
+score: 60
+next state [obs]: You can't go north from here!
+
+<< Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+next state valid acts: dict_values(['north', 'take wooden', 'put paper down', 'abstract paper to wooden', 'abstract paper to white', 'abstract wooden to paper', 'abstract white to paper', 'abstract white to wooden', 'west'])
+next_state score: 60
+action: abstract white to paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+valid acts: dict_values(['north', 'take wooden', 'put paper down', 'abstract paper to wooden', 'abstract paper to white', 'abstract wooden to paper', 'abstract white to paper', 'abstract white to wooden', 'west'])
+score: 60
+next state [obs]: (the paper note)
+[Abstracted.]
+next state valid acts: dict_values(['north', 'take wooden', 'put paper down', 'abstract paper to wooden', 'abstract wooden to paper', 'abstract wooden to white', 'abstract white to paper', 'abstract white to wooden', 'west'])
+next_state score: 60
+action: abstract white to paper
+reward: 0
+
+----------------------------------------------
+
+state [obs]: (the paper note)
+[Abstracted.]
+valid acts: dict_values(['north', 'take wooden', 'put paper down', 'abstract paper to wooden', 'abstract wooden to paper', 'abstract wooden to white', 'abstract white to paper', 'abstract white to wooden', 'west'])
+score: 60
+next state [obs]: (the paper note)
+[Abstracted.]
+next state valid acts: dict_values(['north', 'take wooden', 'put paper down', 'abstract paper to wooden', 'abstract wooden to paper', 'abstract wooden to white', 'abstract white to paper', 'abstract white to wooden', 'west'])
+next_state score: 60
+action: abstract paper to wooden
+reward: 0
+
+----------------------------------------------
+
+state [obs]: (the paper note)
+[Abstracted.]
+valid acts: dict_values(['north', 'take wooden', 'put paper down', 'abstract paper to wooden', 'abstract wooden to paper', 'abstract wooden to white', 'abstract white to paper', 'abstract white to wooden', 'west'])
+score: 60
+next state [obs]: (the paper note to the wooden wood)
+[Abstracted.]
+next state valid acts: dict_values(['north', 'take wooden', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: (the paper note to the wooden wood)
+[Abstracted.]
+valid acts: dict_values(['north', 'take wooden', 'west'])
+score: 60
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 60
+next state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 60
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+valid acts: dict_values(['north', 'east'])
+score: 60
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 60
+next state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+next_state score: 60
+action: south
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+score: 60
+next state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 60
+next state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+next state valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+valid acts: dict_values(['get up', 'east', 'south', 'north', 'west'])
+score: 60
+next state [obs]: << Hallway >>
+You are at the end of the hallway. To the north is a room, while to the west is the rest of the hallway.
+next state valid acts: dict_values(['east', 'north', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are at the end of the hallway. To the north is a room, while to the west is the rest of the hallway.
+valid acts: dict_values(['east', 'north', 'west'])
+score: 60
+next state [obs]: << Hallway >>
+You are in the hallway. To the north is more hallway, and to the east is a door marked "Guests".
+next state valid acts: dict_values(['west', 'east', 'north'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are in the hallway. To the north is more hallway, and to the east is a door marked "Guests".
+valid acts: dict_values(['west', 'east', 'north'])
+score: 60
+next state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 60
+next state [obs]: << Closet >>
+You are in a closet. There is no reason to be in here. Go west.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a closet. There is no reason to be in here. Go west.
+valid acts: dict_values(['north', 'west'])
+score: 60
+next state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 60
+next state [obs]: << Closet >>
+You are in a closet. There is no reason to be in here. Go west.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a closet. There is no reason to be in here. Go west.
+valid acts: dict_values(['north', 'west'])
+score: 60
+next state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 60
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 60
+next state [obs]: << Closet >>
+You are in a small closet. The room is bare. Why not go east and get back to the situation at hand?
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a small closet. The room is bare. Why not go east and get back to the situation at hand?
+valid acts: dict_values(['north', 'east'])
+score: 60
+next state [obs]: You can't go north from here!
+
+<< Closet >>
+You are in a small closet. The room is bare. Why not go east and get back to the situation at hand?
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Closet >>
+You are in a small closet. The room is bare. Why not go east and get back to the situation at hand?
+valid acts: dict_values(['north', 'east'])
+score: 60
+next state [obs]: You can't go north from here!
+
+<< Closet >>
+You are in a small closet. The room is bare. Why not go east and get back to the situation at hand?
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 60
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Closet >>
+You are in a small closet. The room is bare. Why not go east and get back to the situation at hand?
+valid acts: dict_values(['north', 'east'])
+score: 60
+next state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 60
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 60
+next state [obs]: << Closet >>
+You are in a small closet. The room is bare. Why not go east and get back to the situation at hand?
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 60
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a small closet. The room is bare. Why not go east and get back to the situation at hand?
+valid acts: dict_values(['north', 'east'])
+score: 60
+next state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 60
+action: south
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 60
+next state [obs]: You can't go south from here!
+
+<< Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go south from here!
+
+<< Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 60
+next state [obs]: << Closet >>
+You are in a closet. There is no reason to be in here. Go west.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a closet. There is no reason to be in here. Go west.
+valid acts: dict_values(['north', 'west'])
+score: 60
+next state [obs]: You can't go north from here!
+
+<< Closet >>
+You are in a closet. There is no reason to be in here. Go west.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 60
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Closet >>
+You are in a closet. There is no reason to be in here. Go west.
+valid acts: dict_values(['north', 'west'])
+score: 60
+next state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+next state valid acts: dict_values(['south', 'east', 'north', 'west'])
+next_state score: 60
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+valid acts: dict_values(['south', 'east', 'north', 'west'])
+score: 60
+next state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+next state valid acts: dict_values(['south', 'west', 'north', 'east'])
+next_state score: 60
+action: west
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+valid acts: dict_values(['south', 'west', 'north', 'east'])
+score: 60
+next state [obs]: << Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 70
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['north', 'east'])
+score: 70
+next state [obs]: You can't go north from here!
+
+<< Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 70
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+valid acts: dict_values(['north', 'east'])
+score: 70
+next state [obs]: You can't go north from here!
+
+<< Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 70
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+valid acts: dict_values(['north', 'east'])
+score: 70
+next state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+next state valid acts: dict_values(['south', 'west', 'north', 'east'])
+next_state score: 70
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+valid acts: dict_values(['south', 'west', 'north', 'east'])
+score: 70
+next state [obs]: << Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 70
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+valid acts: dict_values(['north', 'east'])
+score: 70
+next state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+next state valid acts: dict_values(['south', 'west', 'north', 'east'])
+next_state score: 70
+action: north
+reward: 10
+
+----------------------------------------------
+
+state [obs]: << Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+valid acts: dict_values(['south', 'west', 'north', 'east'])
+score: 70
+next state [obs]: << Outside >>
+You pass the guard. He nods at you. You are now outside standing on the street. You can go north and east, your choice. To the north is more of the street, and to the east is a video store.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['west', 'east', 'north'])
+next_state score: 80
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You pass the guard. He nods at you. You are now outside standing on the street. You can go north and east, your choice. To the north is more of the street, and to the east is a video store.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['west', 'east', 'north'])
+score: 80
+next state [obs]: You can't go west from here!
+
+<< Outside >>
+You pass the guard. He nods at you. You are now outside standing on the street. You can go north and east, your choice. To the north is more of the street, and to the east is a video store.
+next state valid acts: dict_values(['west', 'east', 'north'])
+next_state score: 80
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go west from here!
+
+<< Outside >>
+You pass the guard. He nods at you. You are now outside standing on the street. You can go north and east, your choice. To the north is more of the street, and to the east is a video store.
+valid acts: dict_values(['west', 'east', 'north'])
+score: 80
+next state [obs]: << Dead End >>
+You are at a dead end. You can go south or west. Which way?
+next state valid acts: dict_values(['north', 'west', 'south'])
+next_state score: 80
+action: south
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Dead End >>
+You are at a dead end. You can go south or west. Which way?
+valid acts: dict_values(['north', 'west', 'south'])
+score: 80
+next state [obs]: << Outside >>
+You pass the guard. He nods at you. You are now outside standing on the street. You can go north and east, your choice. To the north is more of the street, and to the east is a video store.
+next state valid acts: dict_values(['west', 'east', 'north'])
+next_state score: 80
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You pass the guard. He nods at you. You are now outside standing on the street. You can go north and east, your choice. To the north is more of the street, and to the east is a video store.
+valid acts: dict_values(['west', 'east', 'north'])
+score: 80
+next state [obs]: << Dead End >>
+You are at a dead end. You can go south or west. Which way?
+next state valid acts: dict_values(['north', 'west', 'south'])
+next_state score: 80
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Dead End >>
+You are at a dead end. You can go south or west. Which way?
+valid acts: dict_values(['north', 'west', 'south'])
+score: 80
+next state [obs]: You can't go north from here!
+
+<< Dead End >>
+You are at a dead end. You can go south or west. Which way?
+next state valid acts: dict_values(['north', 'west', 'south'])
+next_state score: 80
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 10
+next state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 10
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 10
+next state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 10
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 10
+next state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 10
+action: take piece
+reward: 10
+
+----------------------------------------------
+
+state [obs]: You can't go east from here!
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 10
+next state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+next_state score: 20
+action: put piece down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['east', 'north', 'west', 'put piece down'])
+score: 20
+next state [obs]: Dropped.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+next_state score: 20
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['east', 'take piece', 'north', 'west'])
+score: 20
+next state [obs]: << Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+next state valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+score: 20
+next state [obs]: You can't go north from here!
+
+<< Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+next state valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+next_state score: 20
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+score: 20
+next state [obs]: You can't go north from here!
+
+<< Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+next state valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+next_state score: 20
+action: take black
+reward: 10
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+valid acts: dict_values(['north', 'take black', 'east', 'push black to floor'])
+score: 20
+next state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['north', 'put black down', 'east'])
+next_state score: 30
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Taken.
+
+[Your score has just gone up by ten points.]
+valid acts: dict_values(['north', 'put black down', 'east'])
+score: 30
+next state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+next state valid acts: dict_values(['east', 'take piece', 'north', 'west', 'put black down', 'abstract black to piece', 'abstract piece to black'])
+next_state score: 30
+action: abstract piece to black
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+valid acts: dict_values(['east', 'take piece', 'north', 'west', 'put black down', 'abstract black to piece', 'abstract piece to black'])
+score: 30
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['east', 'north', 'west', 'put black down', 'abstract white to black'])
+next_state score: 30
+action: abstract white to black
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['east', 'north', 'west', 'put black down', 'abstract white to black'])
+score: 30
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['east', 'north', 'west', 'put black down', 'abstract white to black'])
+next_state score: 30
+action: abstract white to black
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['east', 'north', 'west', 'put black down', 'abstract white to black'])
+score: 30
+next state [obs]: [Abstracted.]
+next state valid acts: dict_values(['east', 'north', 'west', 'put black down', 'abstract white to black'])
+next_state score: 30
+action: put black down
+reward: 0
+
+----------------------------------------------
+
+state [obs]: [Abstracted.]
+valid acts: dict_values(['east', 'north', 'west', 'put black down', 'abstract white to black'])
+score: 30
+next state [obs]: Dropped.
+next state valid acts: dict_values(['east', 'take black', 'north', 'west', 'abstract white to black'])
+next_state score: 30
+action: west
+reward: 0
+
+----------------------------------------------
+
+state [obs]: Dropped.
+valid acts: dict_values(['east', 'take black', 'north', 'west', 'abstract white to black'])
+score: 30
+next state [obs]: << Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+next state valid acts: dict_values(['north', 'east'])
+next_state score: 30
+action: east
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+valid acts: dict_values(['north', 'east'])
+score: 30
+next state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a small black pistol here.
+next state valid acts: dict_values(['east', 'take black', 'north', 'west', 'abstract white to black'])
+next_state score: 30
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a small black pistol here.
+valid acts: dict_values(['east', 'take black', 'north', 'west', 'abstract white to black'])
+score: 30
+next state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 30
+action: north
+reward: 0
+
+----------------------------------------------
+
+state [obs]: << Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west'])
+score: 30
+next state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+next state valid acts: dict_values(['north', 'west'])
+next_state score: 30
+action: west
+reward: 10
+
+----------------------------------------------
+
+state [obs]: You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+valid acts: dict_values(['north', 'west'])
+score: 30
+next state [obs]: << Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+next state valid acts: dict_values(['west', 'east', 'north'])
+next_state score: 40
+action: north
+reward: 0
+
+----------------------------------------------
+
