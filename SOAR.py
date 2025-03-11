@@ -4,19 +4,18 @@ from jericho import *
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic_models import *
+from State import State
+import json
 
 # Extended SOAR architecture
 class SOAR(): 
-    def __init__(self, game_dir):
+    def __init__(self):
         load_dotenv()
-        self.game = FrotzEnv(game_dir)
-        self.gold_std = self.game.get_walkthrough()
         self.stmem = STMem(self)
         self.ltmem = LTMem(self)
-        self.words = [w.word for w in self.game.get_dictionary()]
         self.clustering = Clustering(self)
     
-    def perception(self):
+    def perception(self, state: State):
         '''
         INPUT: state dict consisting of:
         * ['narrative'] = propmt the game is showing at that state.
@@ -25,14 +24,6 @@ class SOAR():
         * ['score'] = current score at that state.
         * ['actions'] = valid actions to take at that state.
         '''
-        state = {}
-        
-        state['narrative' ] = self.game.get_state()[-1].decode("utf-8").strip("\n") # [-1] is because the last element in the state is the narrative
-        state['inventory'] = [obj.name for obj in self.game.get_inventory()]
-        state['location'] = self.game.get_player_location().name
-        state['score'] = self.game.get_score()
-        state['actions'] = self.game.get_valid_actions()
-        
         self.stmem.set_curr_state(state)
         
         # Start loop by sending to Clustering Class
@@ -51,10 +42,10 @@ class STMem():
         self.soar = soar
         self.app_detect = AppraisalDetector()
         
-    def get_curr_state(self):
+    def get_curr_state(self) -> State:
         return self.state
     
-    def set_curr_state(self, state):
+    def set_curr_state(self, state: State):
         self.state = state
         return self.state
     
@@ -84,7 +75,7 @@ class Clustering():
         self.inp = None
         self.soar = soar
         
-    def router(self, state):
+    def router(self, state: State):
         # pass knowledge to semantic mem (LT mem)
         self.soar.ltmem.sem_mem.sem_learning(state)
         # pass knowledge to episodic mem (LT mem)
@@ -105,9 +96,16 @@ class SematicMem():
             """You are acting as an Agent that stores semantic memories
             (Semantic memory stores factual information, including the
             definition of terms and concepts)."""
-        self.messages = []
+        # TODO: maybe implement a list to keep track of messages and then
+        # add all messages to the json file on __del__()
+        dt = datetime.now()
+        time = f"{dt.year}-{dt.month}-{dt.day}-{dt.hour}:{dt.minute}:{dt.second}"
+        self.filename = str("trial-" + time + ".json")
+        with open(self.filename,"w") as f:
+            json.dump({"data":[]}, f)
+            f.close()
     
-    def sem_learning(self, state):
+    def sem_learning(self, state: State):
         '''Evaluates input (state) to store knowledge appropiately.'''
         # Build a prompt (piece of text) that stores general knowledge about the state
         prompt = ChatPromptTemplate.from_messages(
@@ -134,16 +132,29 @@ class SematicMem():
         
         llm = self.model.with_structured_output(GetAnswerAsList)
         chain = prompt | llm # generate response and parse into a list.
-        response = chain.invoke({"narrative":state['narrative'],
-                      "inventory":state['inventory'],
-                      "location":state['location'],
-                      "actions":state['actions']})
-        print("prompt",prompt)
-        print("response",response)
+        response = chain.invoke({"narrative":state.narrative,
+                      "inventory":state.inventory,
+                      "location":state.location,
+                      "actions":state.actions})
+        prompt_str = prompt.invoke({"narrative":state.narrative,
+                      "inventory":state.inventory,
+                      "location":state.location,
+                      "actions":state.actions})
+        prompt_str = [messgs.content for messgs in prompt_str.messages]
+        
+        print("prompt",prompt_str)
+        print("response",response.response)
         # save response to LT memory
-        with open(str("trial-" + str(datetime.now())),"a") as f:
-            f.write(str(prompt))
-            f.write(str(response))
+        record = {"prompt":str(" ".join(prompt_str)),
+                  "answer":response.response}
+        print("record",record)
+        with open(self.filename,"r+") as f:
+            data = json.load(f)
+            data["data"].append(record)
+            f.seek(0)
+            json.dump(data, f, indent=4)
+            f.close()
+            
         return response
     
     def store_response(self):

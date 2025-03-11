@@ -1,4 +1,9 @@
 from pydantic import BaseModel
+from typing import List
 
 class State(BaseModel):
-    next_action: str = 
+    narrative: str = ""
+    inventory: List[str] = []
+    location: str = ""
+    score: int = 0
+    actions: List[str] = []
