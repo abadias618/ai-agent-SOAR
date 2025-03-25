@@ -11,6 +11,7 @@ from State import State
 import json
 #
 from prompts import NO_STATE, NO_LAST_ACTION
+
 # Extended SOAR architecture
 class SOAR(): 
     def __init__(self):
@@ -24,8 +25,10 @@ class SOAR():
         self.openai_emb = OpenAIEmbeddings()
         self.sem_mem_dir = "./semantic_memory"
         self.proc_mem_dir = "./procedural_memory"
-        self.stmem = STMem(self)
-        self.ltmem = LTMem(self)
+        self.epi_mem_dir = "./episodic_memory"
+        self.dt = datetime.now()
+        self.stmem = STMem(self, self.dt)
+        self.ltmem = LTMem(self, self.dt)
         self.clustering = Clustering(self)
         self.reinforcement_learning = ReinforcementLearning()
         
@@ -40,26 +43,27 @@ class SOAR():
         * ['score'] = current score at that state.
         * ['actions'] = valid actions to take at that state.
         '''
+        saved_state = self.stmem.get_curr_state()
+        self.stmem.set_prev_state(saved_state)
         self.stmem.set_curr_state(state)
         
         # Start loop by sending to Clustering Class
         prev_state = self.stmem.get_prev_state()
-        self.clustering.router(state, prev_state)
+        self.clustering.router(state, prev_state, self.stmem.get_last_action())
         
         # Set the now current as if it were the previous for
         # STMem
         
         return self.stmem.get_curr_state()
     
-    def action(self, state: State):
+    def action(self):
         action = self.stmem.decision_proc()
-        self.stmem.set_prev_state(state)
         self.stmem.set_last_action(action)
         return action
     
 class STMem():
     '''Short-Term Memory'''
-    def __init__(self, soar):
+    def __init__(self, soar, dt):
         self.state = None
         self.prev_state = None
         self.last_action = None
@@ -119,10 +123,10 @@ class ReinforcementLearning():
         
 class LTMem():
     '''Long-Term Memory'''
-    def __init__(self, soar):
-        dt = datetime.now()
+    def __init__(self, soar, dt): 
         self.sem_mem = SematicMem(soar.sem_mem_dir, soar.openai_emb, soar.model, dt)
         self.proc_mem = ProceduralMem(soar.proc_mem_dir, soar.openai_emb, soar.model, dt)
+        self.epi_mem = EpisodicMem(soar.epi_mem_dir, soar.openai_emb, soar.model, dt)
         self.soar = soar
 
 class Clustering():
@@ -136,6 +140,7 @@ class Clustering():
         # pass knowledge to semantic mem (LT mem)
         self.soar.ltmem.sem_mem.sem_learning(state)
         # pass knowledge to episodic mem (LT mem)
+        self.soar.ltmem.epi_mem.epi_learning(state, last_action)
         # pass knowledge to procedural mem (LT mem)
         self.soar.reinforcement_learning.set(state.score, prev_state.score if prev_state != None else None) # error handled
         self.soar.ltmem.proc_mem.proc_learning(state, prev_state, last_action, self.soar.reinforcement_learning.get_reward())
@@ -265,8 +270,12 @@ class ProceduralMem():
                                 -\"The decision I took transported me to a new place, therefore when I make this decision the consequence is to go to a new place.\"
                                 -\"My score in the game increased, therefore taking that decision must be advantageous in some cases.\"
                                 -\"Based on the consequences from my action, in what direction is the game trying to take me, and what might be the goal I should pursue?\"
-                                The decision you took was: {action} and you went from {prev_state_narrative} to {state_narrative}
-                                Your score {rl}
+                                The decision you took was: \"{action}\" chosen from {valid_actions}
+                                And you went from the screen displaying:
+                                {prev_state_narrative}
+                                To the screen displaying:
+                                {state_narrative}
+                                In relation to scores: {rl}
                                 You should return exactly 5 answers.
                                 """
                         )
@@ -279,12 +288,14 @@ class ProceduralMem():
         response = chain.invoke({"prev_state_narrative":prev_state.narrative,
                       "state_narrative":state.narrative,
                       "rl":rl,
-                      "action":last_action})
+                      "action":last_action,
+                      "valid_actions":prev_state.actions})
         
         prompt_str = prompt.invoke({"prev_state_narrative":prev_state.narrative,
                       "state_narrative":state.narrative,
                       "rl":rl,
-                      "action":last_action})
+                      "action":last_action,
+                      "valid_actions":prev_state.actions})
         prompt_str = [messgs.content for messgs in prompt_str.messages]
         
         # save response to LT memory
@@ -316,8 +327,81 @@ class ProceduralMem():
     
     
 class EpisodicMem():
-    def __init__(self):
-        pass
+    def __init__(self, save_dir, openai_emb, model, datetime_obj):
+        self.model = model
+        self.vector_store = InMemoryVectorStore(openai_emb)
+        self.system_prompt = \
+            """You are acting as an Agent that stores episodic memories.
+            You need to focus on storing information that can be concatenated
+            later with other episodic memories.
+            """
+        dt = datetime_obj
+        time = f"{dt.year}-{dt.month}-{dt.day}-{dt.hour}:{dt.minute}:{dt.second}"
+        self.filename = str(save_dir+"/trial-" + time + ".json")
+        with open(self.filename,"w") as f:
+            json.dump({"data":[]}, f)
+            f.close()
+            
+    def epi_learning(self, state: State, last_action: str):
+        if last_action == None:
+            last_action = NO_LAST_ACTION
+        prompt = ChatPromptTemplate.from_messages(
+                    [
+                        ("system", self.system_prompt),
+                        ("human", """Here is some information as a snapshot of what is happening
+                                in our narrative game:
+                                1. The current narrative: {narrative}
+                                2. Your score in the game: {score}
+                                3. The actions you can choose from: {actions}
+                                4. The action you took previously: {last_action}
+                                Summarize what is happening and extract the most meaningful
+                                information into 1 sentence that will be stored as an episodic memory.
+                                Only return 1 sentence with up to 40 words.
+                                """
+                        )
+                    ]
+                
+                )
+        
+        llm = self.model.with_structured_output(GetAnswerAsString)
+        chain = prompt | llm # generate response and parse into a list.
+        response = chain.invoke({"narrative":state.narrative,
+                      "score":state.score,
+                      "last_action":last_action,
+                      "actions":state.actions})
+        
+        prompt_str = prompt.invoke({"narrative":state.narrative,
+                      "score":state.score,
+                      "last_action":last_action,
+                      "actions":state.actions})
+        prompt_str = [messgs.content for messgs in prompt_str.messages]
+        
+        # save response to LT memory
+        record = {"prompt":str(" ".join(prompt_str)),
+                  "answer":response.response}
+        
+        self.store_response_json(record)
+        #self.store_response_vec(record["response"])
+        return response
+    
+    def store_response_json(self, record):
+        """Initially I thought I'd have this as a way of debbuging, but
+        maybe I can just asynchronoulsy use a free embed model through 
+        the json when necessary"""
+        with open(self.filename,"r+") as f:
+            data = json.load(f)
+            data["data"].append(record)
+            f.seek(0)
+            json.dump(data, f, indent=4)
+            f.close()
+        return
+    
+    def store_response_vec(self, answer_only):
+        """We don't really need a splitter bc the answers are mostly
+        short bc of the prompt"""
+        docs = [Document(ans) for ans in answer_only]
+        processed = self.vector_store().add_documents(docs)
+        return processed
     
 class STVisualMem():
     def __init__(self):

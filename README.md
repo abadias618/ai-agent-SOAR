@@ -7,4 +7,10 @@ Using the Jericho repo for AI agents form Microsoft
 - Did a manual download of the rom from Github, but could also wget the whole suit of games as instructed in the official Jericho docs
 
 # SOAR Architecture
-- Here I'm using the extended SOAR architecture proposed in 2007 (gotta check the date better)
+- Here I'm using the extended SOAR architecture proposed in 2007 (gotta check the date better) SOAR 9 I think.
+
+# TODOs
+~~- Implement Episodic Memory.~~ (Mar 25, 02:16am)
+- Implement Long and Short term memomry for images (Visal Memory).
+- Implement Apraisal Detector system.
+- Implement Decision Procedure.

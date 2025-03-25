@@ -17,9 +17,9 @@ state.score = env.get_score()
 state.actions = env.get_valid_actions()
 
 soar.perception(state)
-action = soar.action(state)
+action = soar.action()
 env.step(action)
-
+# new state
 state.narrative = env.get_state()[-1].decode("utf-8").strip("\n") # [-1] is because the last element in the state is the narrative
 state.inventory = [obj.name for obj in env.get_inventory()]
 state.location = env.get_player_location().name
@@ -27,3 +27,5 @@ state.score = env.get_score()
 state.actions = env.get_valid_actions()
 
 soar.perception(state)
+action = soar.action()
+print('action', action)
