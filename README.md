@@ -10,7 +10,10 @@ Using the Jericho repo for AI agents form Microsoft
 - Here I'm using the extended SOAR architecture proposed in 2007 (gotta check the date better) SOAR 9 I think.
 
 # TODOs
-~~- Implement Episodic Memory.~~ (Mar 25, 02:16am)
-- Implement Long and Short term memomry for images (Visal Memory).
+- ~~Implement Episodic Memory.~~ (Mar 25, 02:16am)
+- Implement Long and Short term memory for images (Visual Memory).~~(Mar 27 Long Term Memory Implemented)~~
 - Implement Apraisal Detector system.
 - Implement Decision Procedure.
+- ~~Restructure how vectors are stored (use FAISS and separate sem, proc, epi, into meta-tags instead of instantiating 3 separate vector DBs)~~
+- Figure out how to pass everything to shorterm memory without memory leaking.
+- Retrieve relevant memories to ST Mem.
