@@ -11,9 +11,9 @@ Using the Jericho repo for AI agents form Microsoft
 
 # TODOs
 - ~~Implement Episodic Memory.~~ (Mar 25, 02:16am)
-- Implement Long and Short term memory for images (Visual Memory).~~(Mar 27 Long Term Memory Implemented)~~
+- ~~Implement Long and Short term memory for images (Visual Memory).(Apr 1, 02:42am)~~
 - Implement Apraisal Detector system.
 - Implement Decision Procedure.
 - ~~Restructure how vectors are stored (use FAISS and separate sem, proc, epi, into meta-tags instead of instantiating 3 separate vector DBs)~~
-- Figure out how to pass everything to shorterm memory without memory leaking.
+- ~~Figure out how to pass everything to shorterm memory without memory leaking.~~
 - Retrieve relevant memories to ST Mem.

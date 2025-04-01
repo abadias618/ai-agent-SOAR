@@ -38,7 +38,7 @@ class SOAR():
                     provider="hf-inference",
                     api_key=os.getenv("HF"))
         self.openai_emb = OpenAIEmbeddings()
-        self.index = faiss.IndexFlatL2() # Flat index is good for few searches (1000-10000)
+        self.index = faiss.IndexFlatL2(len(self.openai_emb.embed_query("dimensions"))) # Flat index is good for few searches (1000-10000)
         self.faiss = FAISS(
                     embedding_function=self.openai_emb,
                     index=self.index,
@@ -50,7 +50,7 @@ class SOAR():
         self.vis_mem_dir = "./visual_memory"
         self.dt = datetime.now()
         self.stmem = STMem(self, self.dt)
-        self.ltmem = LTMem(self, self.dt, self.faiss)
+        self.ltmem = LTMem(self, self.dt)
         self.clustering = Clustering(self)
         self.reinforcement_learning = ReinforcementLearning()
         
@@ -160,8 +160,8 @@ class LTMem():
     '''Long-Term Memory'''
     def __init__(self, soar, dt): 
         self.sem_mem = SematicMem(soar.sem_mem_dir, soar.faiss, soar.model, dt, soar.uuid_generator)
-        self.proc_mem = ProceduralMem(soar.proc_mem_dir, soar.faiss, soar.model, dt, soar.id_generator, soar.uuid_generator)
-        self.epi_mem = EpisodicMem(soar.epi_mem_dir, soar.faiss, soar.model, dt, soar.id_generator, soar.uuid_generator)
+        self.proc_mem = ProceduralMem(soar.proc_mem_dir, soar.faiss, soar.model, dt, soar.uuid_generator)
+        self.epi_mem = EpisodicMem(soar.epi_mem_dir, soar.faiss, soar.model, dt, soar.uuid_generator)
         self.lt_vis_mem = LTVisualMem(soar.vis_mem_dir, soar.faiss, soar.image_client, dt)
         self.soar = soar
 
@@ -174,23 +174,31 @@ class Clustering():
         
     def router(self, state: State, prev_state: State = None, last_action: str = None):
         # all of the memories will be tied together based on this state step number
-        state_number = next(self.soar.id_gen)
+        state_number = next(self.soar.id_generator())
+        print("state_number",state_number)
         # pass knowledge to semantic mem (LT mem)
         sem = self.soar.ltmem.sem_mem.sem_learning(state, state_number)
+        print("finished Semantic")
         # pass knowledge to procedural mem (LT mem)
         self.soar.reinforcement_learning.set(state.score, prev_state.score if prev_state != None else None) # error handled
         rl = self.soar.reinforcement_learning.get_reward()
+        print("finished RL")
         proc = self.soar.ltmem.proc_mem.proc_learning(state, prev_state, last_action, rl, state_number)
+        print("finished Procedural")
         # pass knowledge to episodic mem (LT mem)
         prompt, uuid = self.soar.ltmem.epi_mem.epi_learning(state, last_action, state_number)
+        print("finished Episodic")
         # pass knowledge to LT visual mem (LT mem)
         image = self.soar.ltmem.lt_vis_mem.save_episode(state_number, prompt)
+        print("finished Image Creation")
         self.soar.ltmem.lt_vis_mem.add_image_to_epi_vec(uuid)
-        # pass knowledge to ST visual mem
-        self.soar.st_vis_mem.save_episode()
+        print("finished adding image name to Episodic vector")
+        
         # finally, pass knowledge to ST mem
         d ={"sem":sem, "rl":rl, "proc":proc, "epi":prompt, "image":image}
         self.soar.stmem.edit_mind(d)
+        print("mind:",d)
+        self.soar.faiss.save_local("./image_sandbox")
 class SematicMem():
     def __init__(self, save_dir, faiss, model, datetime_obj, uuid_gen):
         self.model = model
@@ -259,7 +267,7 @@ class SematicMem():
                   "answer":response.response}
         
         self.store_response_json(record)
-        #self.store_response_vec(record["response"], id)
+        self.store_response_vec(record["answer"], id)
         return record["answer"]
     
     def store_response_json(self, record):
@@ -279,13 +287,15 @@ class SematicMem():
         short bc of the prompt"""
         docs = [Document(page_content=ans, metadata={"source":"semantic", "state_num":id}) for ans in answer_only]
         uuids = [next(self.uuid_gen()) for _ in range(len(docs))]
+        print("uuids semantic",uuids,"docs",docs)
         processed = self.faiss.add_documents(documents = docs, ids=uuids)
         return processed
 
 class ProceduralMem():
-    def __init__(self, save_dir, openai_emb, model, datetime_obj):
+    def __init__(self, save_dir, faiss, model, datetime_obj, uuid_gen):
         self.model = model
-        self.vector_store = InMemoryVectorStore(openai_emb)
+        self.faiss = faiss
+        self.uuid_gen = uuid_gen
         self.system_prompt = \
             """You are acting as an Agent that stores procedural memories
             (Procedural memory stores how to do things that later become instictive
@@ -348,7 +358,7 @@ class ProceduralMem():
                   "answer":response.response}
         
         self.store_response_json(record)
-        #self.store_response_vec(record["response"], id)
+        self.store_response_vec(record["answer"], id)
         return record["answer"]
     
     def store_response_json(self, record):
@@ -368,14 +378,16 @@ class ProceduralMem():
         short bc of the prompt"""
         docs = [Document(page_content=ans, metadata={"source":"procedural", "state_num":id}) for ans in answer_only]
         uuids = [next(self.uuid_gen()) for _ in range(len(docs))]
+        print("uuids procedural",uuids,"docs",docs)
         processed = self.faiss.add_documents(documents = docs, ids=uuids)
         return processed
     
     
 class EpisodicMem():
-    def __init__(self, save_dir, openai_emb, model, datetime_obj):
+    def __init__(self, save_dir, faiss, model, datetime_obj, uuid_gen):
         self.model = model
-        self.vector_store = InMemoryVectorStore(openai_emb)
+        self.faiss = faiss
+        self.uuid_gen = uuid_gen
         self.system_prompt = \
             """You are acting as an Agent that stores episodic memories.
             You need to focus on storing information that can be concatenated
@@ -427,8 +439,8 @@ class EpisodicMem():
                   "answer":response.response}
         
         self.store_response_json(record)
-        #id = self.store_response_vec(record["response"], id)
-        return (response["answer"], id)
+        id = self.store_response_vec(record["answer"], id)
+        return (record["answer"], id)
     
     def store_response_json(self, record):
         """Initially I thought I'd have this as a way of debbuging, but
@@ -445,8 +457,9 @@ class EpisodicMem():
     def store_response_vec(self, answer_only, id):
         """We don't really need a splitter bc the answers are mostly
         short bc of the prompt"""
-        docs = Document(page_content=answer_only, metadata={"source":"episodic", "state_num":id})
-        uuids = next(self.uuid_gen())
+        docs = [Document(page_content=answer_only, metadata={"source":"episodic", "state_num":id})]
+        uuids = [next(self.uuid_gen())]
+        print("uuids Episodic",uuids,"docs",docs)
         processed = self.faiss.add_documents(documents = docs, ids=uuids)
         return processed[0] # will return a list with only 1 element
     
@@ -471,7 +484,7 @@ class LTVisualMem():
                     model="nerijs/pixel-art-xl",
                 )
         time = f"{self.dt.year}-{self.dt.month}-{self.dt.day}-{self.dt.hour}:{self.dt.minute}:{self.dt.second}"
-        name = f"{self.save_dir}-{time}-state-{id}.png"
+        name = f"{self.save_dir}/{time}-state-{id}.png"
         image.save(name)
         self.image_name = name
         return image
@@ -480,10 +493,10 @@ class LTVisualMem():
         """We don't really need a splitter bc the answers are mostly
         short bc of the prompt"""
         
-        doc = self.faiss.docstore.search(uuid)
+        doc = self.faiss.docstore._dict.get(uuid, None)
         if doc:
             doc.metadata["image"] = self.image_name
         else:
             print(f"no doc found with uuid: {uuid}")
-        self.faiss.docstore.update(uuid, doc)
+        print(doc.metadata)
         return 
